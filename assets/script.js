@@ -1,6 +1,6 @@
 const DEBUG = true;
 const ID_SYMBOL = "#";
-const ARTICLE_PARENT_CONTAINER_ID = "article_container";
+const ARTICLE_PARENT_CONTAINER_ID = "article_section";
 
 const actions_data = [
     { href: "#", src: "./assets/MainIcons/favorite.svg", alt: "Favorite" },
@@ -77,7 +77,7 @@ function debug(...args) {
  */
 function create_interaction_button({ href = "#", src = "", alt = "" }) {
     const btn = document.createElement('button');
-    btn.classList.add("interactive_btn");
+    btn.classList.add("interactive_btn", alt);
 
     const img = document.createElement('img');
     img.src = src;
@@ -96,8 +96,7 @@ function create_interaction_button({ href = "#", src = "", alt = "" }) {
  * @param {string} text
  */
 function create_article({ heading, text, actions }) {
-    const article_parent_container = document.querySelector(ID_SYMBOL.concat("article_container"));
-
+    const article_parent_container = document.querySelector(ID_SYMBOL.concat(ARTICLE_PARENT_CONTAINER_ID));
     const article_container = document.createElement("article");
     article_container.classList.add("article");
 
